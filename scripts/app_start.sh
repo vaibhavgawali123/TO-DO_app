@@ -42,7 +42,8 @@ export $(grep -v '^#' .env | xargs)
 
 # Start application with PM2
 echo "Starting application with PM2..."
-pm2 start server.js --name mern-app
+pm2 node --name "mern-todo-app" --watch --ignore-watch="node_modules" --env production --interpreter /root/.nvm/versions/node/v18.16.0/bin/node server.js
+
 
 # Ensure PM2 restarts app on server reboot
 pm2 startup
